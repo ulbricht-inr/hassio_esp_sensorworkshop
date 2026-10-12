@@ -1,0 +1,99 @@
+\ProvidesPackage{mypresi}
+\def\fileversion{0.1}
+\def\filedate{\today{}}
+\definecolor{inrgreen}{rgb}{0.015,0.4549,0.2196}
+\definecolor{htwkblue}{rgb}{0,0.267,0.533}
+\definecolor{charisma1}{rgb}{0.29,0.447,0.69} % changed this
+\definecolor{charisma2}{rgb}{0,0.61,0.89} % changed this
+\definecolor{selfnet1}{rgb}{0.137,0.157,0.3334} % changed this
+\definecolor{selfnet2}{rgb}{0.157,0.616,0.851} % changed this
+
+\setbeamertemplate{navigation symbols}{} 
+%\setbeamertemplate{footline}[text line]{\href{http://www.innoroute.de}{\includegraphics[height=0.6cm]{innoroute}}\hfill \begin{minipage}{2cm}
+%\textcolor{black}{\newline\newline
+%Slide \insertframenumber{} of \inserttotalframenumber \vspace{0.5cm}}
+%\end{minipage}}
+\setbeamertemplate{note page}{%
+  \insertnote%
+}
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[ht=10ex,wd=\paperwidth,ht=0.1ex,dp=1ex,center]{selfnet1}\end{beamercolorbox}}
+  \hbox{%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=5ex,dp=1ex,center]{author in head/foot}%
+    \vspace*{0.05cm}
+    \usebeamerfont{author in head/foot}\footnotesize\presenter
+   % \hfill\vspace{3pt}
+	  \end{beamercolorbox}%
+	  \begin{beamercolorbox}[wd=.4\paperwidth,ht=5ex,dp=1ex,center]{title in head/foot}%
+	  \vspace*{0.05cm}
+	    \usebeamerfont{title in head/foot}\footnotesize\hspace*{0.2cm}\insertsection \hspace{10pt} \insertsubsection
+	      \end{beamercolorbox}%
+        
+   \begin{beamercolorbox}[wd=.3\paperwidth,ht=5ex,dp=1ex,center]{framenum}%
+      \vspace*{0.05cm}\footnotesize\hfill \insertframenumber{}/\inserttotalframenumber\hspace*{1ex}%\vspace*{2pt}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\setbeamertemplate{headline}{\includegraphics[height=1cm]{style/dummy.png}\hfill\hspace{1cm}\href{http://i-itwk-leipzig.de}{\includegraphics[height=0.5cm]{style/dummy.png}}\hspace{0.5cm}
+}
+\setbeamercolor{author in head/foot}{fg=white,bg=gray!70}
+\setbeamercolor{title in head/foot}{fg=white,bg=gray!70}
+\setbeamercolor{title in head/foot2}{fg=white,bg=gray!70}
+\setbeamercolor{framenum}{fg=white,bg=gray!70}
+\setbeamercolor{selfnet1}{fg=white,bg=htwkblue}
+\newcommand{\hl}[1]{\textbf{\textcolor{htwkblue!100!black!50}{#1}}}
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vfill}{\vskip\itemsep}{}
+\makeatother
+\newcommand{\actor}[8]{\begin{frame}
+%\subsection{#1}
+\label{#8}
+\begin{tabu}{p{0.4\textwidth}p{0.5\textwidth}}
+\textbf{Name:}\newline\hspace*{0.1cm}#1\newline \textbf{Partners:}\newline\hspace*{0.1cm}#2\newline & \textbf{Description:}\newline\leftskip=0.1cm #3 \\ 
+\textbf{Input:}\newline\hspace*{0.1cm}#4& \textbf{Output:}\newline\hspace*{0.1cm}#5\\ 
+\multicolumn{2}{c}{\includegraphics[#7]{#6}} \\ 
+\end{tabu}
+ \end{frame} }
+\newcommand{\actorh}[8]{\begin{frame}
+%\subsection{#1}
+\label{#8}
+\begin{minipage}{0.48\textwidth}
+\textbf{Name:}\newline\hspace*{0.1cm}#1\\
+\textbf{Partners:}\newline\hspace*{0.1cm}#2\\
+\textbf{Input:}\newline\hspace*{0.1cm}#4\\
+\textbf{Output:}\newline\hspace*{0.1cm}#5\\
+\vfill
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+\textbf{Description:}\newline\leftskip=0.1cm #3\\
+\includegraphics[#7]{#6}
+\end{minipage}
+ \end{frame}}
+ \makeatletter
+
+\taburulecolor{htwkblue}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{example text}{fg=htwkblue!50!black}
+
+\setbeamercolor{structure}{fg=htwkblue!90}
+
+\setbeamercolor{background canvas}{parent=normal text}
+\setbeamercolor{background}{parent=background canvas}
+
+\setbeamercolor{palette primary}{fg=yellow,bg=yellow} % changed this
+\setbeamercolor{palette secondary}{use=structure,fg=structure.fg!100!htwkblue} % changed this
+\setbeamercolor{palette tertiary}{use=structure,fg=structure.fg!100!htwkblue} % changed this
+\setbeamercolor{author}{fg=htwkblue!70} 
+\setbeamercolor{title}{fg=htwkblue!90} 
+\setbeamercolor{date}{fg=htwkblue!70} 
+\setbeamercolor{subsection in toc}{fg=htwkblue!50}
+\setbeamertemplate{frametitle}
+{
+\vspace{-0.7cm}
+\insertframetitle
+}
+
+\makeatother
