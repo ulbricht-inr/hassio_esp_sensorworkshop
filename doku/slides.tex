@@ -332,4 +332,27 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{ESPHome kompilieren}
+  \begin{enumerate}
+    \item Öffne \texttt{secrets.yaml} und trage die WLAN-Daten ein:
+      \begin{center}
+        \begin{tabular}{rl}
+          \textbf{WLAN:}    & \texttt{ENTFERNT} \\
+          \textbf{Passwort:} & \texttt{ENTFERNT}
+        \end{tabular}
+      \end{center}
+    \item Verbinde den ESP32 mit einem USB-Kabel über den USB-Hub mit
+      deinem Rechner.
+    \item Öffne ein Terminal und wechsle in den Quellordner:
+      \begin{center}
+        \texttt{cd Desktop/hassio\_esp\_sensorworkshop/src}
+      \end{center}
+      {\footnotesize Nutze die \keystroke{Tab}-Taste zur Autovervollständigung.}
+    \item Kompiliere die Konfiguration:
+      \begin{center}
+        \texttt{esphome compile esphome\_start.yml}
+      \end{center}
+  \end{enumerate}
+\end{frame}
+
 \end{document}
