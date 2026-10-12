@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{etoolbox}
 \usepackage{tabu}
+\usepackage{tikz}
 
 \usetheme{Montpellier}
 
@@ -65,17 +66,33 @@
 \end{frame}
 
 \begin{frame}{Hardware, die wir benutzen II}
-  \begin{block}{ESP8266}
+  \begin{block}{ESP32}
     \begin{itemize}
-      \item Mikrocontroller mit WLAN.
-      \item Kann sehr viel für einen kleinen Preis und besitzt ähnliche
-        Schnittstellen wie der Raspberry Pi.
-      \item Die Programmierung ist kompliziert. Daher nutzen wir heute eine
-        Vereinfachung, um aus einer Textdatei ein komplettes Betriebssystem zu
-        bauen.
+      \item Leistungsfähiger Mikrocontroller mit WLAN und Bluetooth.
+      \item Besitzt zahlreiche Schnittstellen für Sensoren und Aktoren, zum
+        Beispiel GPIO, ADC, I\textsuperscript{2}C, SPI und UART.
+      \item Mit ESPHome erzeugen wir aus einer übersichtlichen Konfigurationsdatei
+        die passende Firmware für den Mikrocontroller.
     \end{itemize}
     \centering
-    \includegraphics[width=0.25\textwidth]{bilder/esp.jpeg}
+    \begin{tikzpicture}[scale=0.72]
+      \draw[rounded corners=2pt, thick, fill=black!85]
+        (0,0) rectangle (5.2,2.8);
+      \draw[fill=gray!15, draw=gray!70]
+        (0.45,0.35) rectangle (3.65,2.45);
+      \node[font=\bfseries\large] at (2.05,1.58) {ESP32};
+      \node[font=\scriptsize] at (2.05,1.05) {Wi-Fi + Bluetooth};
+      \foreach \y in {0.35,0.77,1.19,1.61,2.03,2.45} {
+        \draw[fill=yellow!60!orange, draw=yellow!30!black]
+          (-0.18,\y-0.09) rectangle (0,\y+0.09);
+        \draw[fill=yellow!60!orange, draw=yellow!30!black]
+          (5.2,\y-0.09) rectangle (5.38,\y+0.09);
+      }
+      \draw[white, line width=1.2pt]
+        (4.08,0.45) -- (4.75,0.45) -- (4.75,0.82) -- (4.08,0.82)
+        -- (4.08,1.19) -- (4.75,1.19) -- (4.75,1.56) -- (4.08,1.56)
+        -- (4.08,1.93) -- (4.75,1.93) -- (4.75,2.30) -- (4.08,2.30);
+    \end{tikzpicture}
   \end{block}
 \end{frame}
 
@@ -110,6 +127,7 @@
       \item Leicht erweiterbar, Open Source und kostenlos.
       \item Unterstützt eine sehr große Anzahl unterschiedlicher Komponenten
         von unterschiedlichen Herstellern.
+      \item Home Assistant ist auf dem Raspberry Pi bereits vorinstalliert.
       \item \url{https://www.home-assistant.io/}
     \end{itemize}
     \centering
