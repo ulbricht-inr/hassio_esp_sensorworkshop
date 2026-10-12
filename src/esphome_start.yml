@@ -1,0 +1,27 @@
+esphome:
+  name: workshop-sensor
+  friendly_name: Workshop Sensor
+
+esp32:
+  board: esp32dev
+
+logger:
+
+api:
+
+ota:
+  - platform: esphome
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+sensor:
+  - platform: dht
+    pin: GPIO4
+    model: DHT11
+    temperature:
+      name: "Workshop Temperatur"
+    humidity:
+      name: "Workshop Luftfeuchtigkeit"
+    update_interval: 10s
