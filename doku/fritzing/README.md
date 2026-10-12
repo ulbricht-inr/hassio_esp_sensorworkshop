@@ -6,6 +6,8 @@ und anschließend in der LaTeX-Folie beschriftet und verdrahtet.
 - `esp32-breadboard.svg` / `.pdf`: ESP32S-HiLetgo, Bauteilautor Stephen Lilley
 - `dht11-module-breadboard.svg` / `.pdf`: KY-015 DHT11-Modul,
   Bauteilautor arduinomodules.info
+- `breadboard2.pdf`, `resistor-220.pdf` und `led-red-5mm.pdf`: Standardbauteile
+  aus der offiziellen Fritzing-Bauteilbibliothek
 
 Ausgangspunkt war das Fritzing-Projekt
 [`ESP32S_DHT11.fzz`](https://github.com/brucetsao/Fritzing/blob/master/%E9%9B%BB%E8%B7%AF%E8%A8%AD%E8%A8%88/ESP32/ESP32S_DHT11.fzz).
@@ -22,3 +24,7 @@ Workshop-Belegung:
 
 Das verwendete DHT11-Modul besitzt den Pull-up-Widerstand bereits auf der
 Sensorplatine.
+
+Die dimmbare LED wird von `GPIO18` über einen 220-Ohm-Vorwiderstand angesteuert.
+Das lange Bein der LED (Anode) zeigt zum Widerstand, das kurze Bein (Kathode)
+wird mit GND verbunden.
