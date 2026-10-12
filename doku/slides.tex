@@ -228,4 +228,78 @@
   \end{columns}
 \end{frame}
 
+\begin{frame}{DHT11 an den ESP32 anschließen}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.52\textwidth}
+      \centering
+      \textbf{Aufbau für Schüler}\\[0.3em]
+
+      \begin{tikzpicture}[x=1cm,y=1cm]
+        \node[anchor=south west,inner sep=0] (esp32) at (0,0)
+          {\includegraphics[height=4.4cm]{fritzing/esp32-breadboard.pdf}};
+        \node[anchor=south west,inner sep=0] (dht11) at (4.5,1.5)
+          {\includegraphics[height=2.8cm]{fritzing/dht11-module-breadboard.pdf}};
+
+        \draw[red!85!black,line width=2.2pt,rounded corners=3pt]
+          (0.12,4.29) -- (-0.25,4.29) -- (-0.25,4.75)
+          -- (5.30,4.75) -- (5.30,1.50);
+        \draw[green!55!black,line width=2.2pt,rounded corners=3pt]
+          (2.13,1.59) -- (3.35,1.59) -- (3.35,1.22)
+          -- (5.06,1.22) -- (5.06,1.50);
+        \draw[black,line width=2.2pt,rounded corners=3pt]
+          (0.12,1.37) -- (-0.45,1.37) -- (-0.45,0.55)
+          -- (5.54,0.55) -- (5.54,1.50);
+
+        \node[fill=white,inner sep=1pt,text=red!80!black,font=\scriptsize\bfseries]
+          at (1.15,4.75) {3V3 $\rightarrow$ +};
+        \node[fill=white,inner sep=1pt,text=green!45!black,font=\scriptsize\bfseries]
+          at (3.95,1.22) {GPIO4 $\rightarrow$ S};
+        \node[fill=white,inner sep=1pt,font=\scriptsize\bfseries]
+          at (1.15,0.55) {GND $\rightarrow$ --};
+      \end{tikzpicture}
+    \end{column}
+
+    \begin{column}{0.46\textwidth}
+      \centering
+      \textbf{Schaltplan für Ingenieure}\\[0.8em]
+
+      \begin{tikzpicture}[x=0.82cm,y=0.82cm,font=\scriptsize]
+        \draw[thick,fill=blue!5] (0,0) rectangle (2.35,4.4);
+        \node[font=\bfseries] at (1.175,3.95) {ESP32};
+
+        \draw[thick,fill=blue!5] (5.15,0.55) rectangle (7.55,3.90);
+        \node[font=\bfseries] at (6.35,3.55) {DHT11};
+        \node[font=\tiny] at (6.35,3.27) {Modul};
+
+        \node[anchor=east] at (2.25,2.95) {3V3};
+        \node[anchor=east] at (2.25,2.05) {GPIO4};
+        \node[anchor=east] at (2.25,1.15) {GND};
+
+        \node[anchor=west] at (5.25,2.95) {VCC};
+        \node[anchor=west] at (5.25,2.05) {DATA};
+        \node[anchor=west] at (5.25,1.15) {GND};
+
+        \draw[thick] (2.35,2.95) -- (5.15,2.95);
+        \draw[thick] (2.35,2.05) -- (5.15,2.05);
+        \draw[thick] (2.35,1.15) -- (5.15,1.15);
+
+        \node[above,font=\tiny] at (3.75,2.95) {+3,3 V};
+        \node[above,font=\tiny] at (3.75,2.05) {Datensignal};
+        \node[above,font=\tiny] at (3.75,1.15) {0 V};
+
+        \draw[thick] (7.05,2.95) -- (7.05,2.82)
+          -- (6.88,2.70) -- (7.22,2.56) -- (6.88,2.42)
+          -- (7.22,2.28) -- (6.88,2.14) -- (7.05,2.05);
+        \node[anchor=east,font=\tiny] at (6.78,2.50) {R1 10 k$\Omega$};
+      \end{tikzpicture}
+
+      {\tiny Der Pull-up-Widerstand befindet sich bereits auf dem Modul.}
+
+      \vspace{0.5em}
+
+      {\footnotesize Vor dem Umstecken immer die Stromversorgung trennen.}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 \end{document}
