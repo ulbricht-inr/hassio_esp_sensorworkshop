@@ -350,21 +350,25 @@
       \end{center}
       {\footnotesize Du solltest jetzt sehen, dass der ESP32 den Code
         ausführt und sich mit dem WLAN verbindet.}
+    \item Merke dir die IP-Adresse, die dein Sensor bekommt, und schreibe
+      sie auf. Du findest sie im Log; sie sieht etwa so aus:
+      \texttt{192.168.2.xxx}.
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Sensor in Home Assistant entdecken}
+\begin{frame}{Sensor in Home Assistant hinzufügen}
   \begin{enumerate}
-    \item Wechsle zurück in den Webbrowser zu deinem noch geöffneten
-      Home Assistant.
-    \item Prüfe, ob Home Assistant ein neues Gerät oder einen neuen Sensor
-      meldet.
+    \item Wechsle im Webbrowser zurück zu Home Assistant.
+    \item Öffne \textbf{Einstellungen $\rightarrow$ Geräte} und füge dort
+      \textbf{ESPHome} hinzu.
+    \item Trage als Hostnamen die IP-Adresse deines Sensors ein, die du dir
+      auf der vorherigen Folie notiert hast.
   \end{enumerate}
 
   \vspace{1em}
 
-  \begin{block}{Achte auf eine Benachrichtigung}
-    Home Assistant sollte den ESP32 jetzt als neues ESPHome-Gerät erkennen.
+  \begin{block}{Hostnamen eintragen}
+    Beispiel: \texttt{192.168.2.\ldots}
   \end{block}
 \end{frame}
 
