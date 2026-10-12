@@ -248,27 +248,30 @@
       \textbf{Praktischer Aufbau}\\[0.3em]
 
       \begin{tikzpicture}[x=1cm,y=1cm]
-        \node[anchor=south west,inner sep=0] (esp32) at (0,0)
-          {\includegraphics[height=4.4cm]{fritzing/esp32-breadboard.pdf}};
-        \node[anchor=south west,inner sep=0] (dht11) at (4.5,1.5)
-          {\includegraphics[height=2.8cm]{fritzing/dht11-module-breadboard.pdf}};
+        \node[anchor=south west,inner sep=0] at (0,0.25)
+          {\includegraphics[height=6.0cm,angle=90,trim=0 0 490 0,clip]
+            {bilder/material-steckbrett.png}};
+        \node[anchor=south west,inner sep=0] (esp32) at (0.55,0.45)
+          {\includegraphics[height=3.7cm]{fritzing/esp32-breadboard.pdf}};
+        \node[anchor=south west,inner sep=0] (dht11) at (4.25,1.05)
+          {\includegraphics[height=2.3cm]{fritzing/dht11-module-breadboard.pdf}};
 
         \draw[red!85!black,line width=2.2pt,rounded corners=3pt]
-          (0.12,4.29) -- (-0.25,4.29) -- (-0.25,4.75)
-          -- (5.30,4.75) -- (5.30,1.50);
+          (0.65,4.06) -- (0.20,4.06) -- (0.20,4.45)
+          -- (5.85,4.45) -- (5.85,0.95) -- (4.91,0.95) -- (4.91,1.05);
         \draw[green!55!black,line width=2.2pt,rounded corners=3pt]
-          (2.13,1.59) -- (3.35,1.59) -- (3.35,1.22)
-          -- (5.06,1.22) -- (5.06,1.50);
+          (2.34,1.79) -- (3.25,1.79) -- (3.25,0.78)
+          -- (4.71,0.78) -- (4.71,1.05);
         \draw[black,line width=2.2pt,rounded corners=3pt]
-          (0.12,1.37) -- (-0.45,1.37) -- (-0.45,0.55)
-          -- (5.54,0.55) -- (5.54,1.50);
+          (0.65,1.60) -- (0.10,1.60) -- (0.10,0.42)
+          -- (5.10,0.42) -- (5.10,1.05);
 
         \node[fill=white,inner sep=1pt,text=red!80!black,font=\scriptsize\bfseries]
-          at (1.15,4.75) {3V3 $\rightarrow$ +};
+          at (1.30,4.45) {3V3 $\rightarrow$ +};
         \node[fill=white,inner sep=1pt,text=green!45!black,font=\scriptsize\bfseries]
-          at (3.95,1.22) {GPIO4 $\rightarrow$ S};
+          at (3.25,1.79) {GPIO4 $\rightarrow$ S};
         \node[fill=white,inner sep=1pt,font=\scriptsize\bfseries]
-          at (1.15,0.55) {GND $\rightarrow$ --};
+          at (1.45,0.42) {GND $\rightarrow$ --};
       \end{tikzpicture}
     \end{column}
 
