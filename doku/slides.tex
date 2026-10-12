@@ -15,7 +15,6 @@
 \author{Marian Ulbricht}
 \date{\today}
 \newcommand{\presenter}{marian.ulbricht@htwk-leipzig.de}
-\newcommand{\lowtilde}{\raisebox{-0.45ex}{\textasciitilde}}
 
 \usepackage{style/mypresi}
 \setbeamercovered{transparent}
@@ -156,11 +155,9 @@
     \begin{center}
       \begin{tabular}{rl}
         \textbf{Benutzername:} & \texttt{famuly} \\
-        \textbf{Passwort:}     & \texttt{ENTFERNT}
+        \textbf{Passwort:}     & steht an der Tafel
       \end{tabular}
     \end{center}
-    {\footnotesize Für \texttt{\lowtilde{}} drückst du
-      \keystroke{AltGr} + \keystroke{+}.}
   \end{block}
 
   \begin{block}{2. Home Assistant öffnen und anmelden}
@@ -334,13 +331,8 @@
 
 \begin{frame}{ESPHome kompilieren}
   \begin{enumerate}
-    \item Öffne \texttt{secrets.yaml} und trage die WLAN-Daten ein:
-      \begin{center}
-        \begin{tabular}{rl}
-          \textbf{WLAN:}    & \texttt{ENTFERNT} \\
-          \textbf{Passwort:} & \texttt{ENTFERNT}
-        \end{tabular}
-      \end{center}
+    \item Öffne \texttt{secrets.yaml} und trage die WLAN-Daten von der
+      Tafel ein.
     \item Verbinde den ESP32 mit einem USB-Kabel über den USB-Hub mit
       deinem Rechner.
     \item Öffne ein Terminal und wechsle in den Quellordner:
