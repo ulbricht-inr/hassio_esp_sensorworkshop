@@ -7,6 +7,7 @@
 \usepackage{etoolbox}
 \usepackage{tabu}
 \usepackage{tikz}
+\usepackage[europeanresistors]{circuitikz}
 \usepackage{keystroke}
 
 \usetheme{Montpellier}
@@ -406,6 +407,99 @@
       \item \textbf{kurzes Bein:} Minuspol (Kathode)
     \end{itemize}
   \end{alertblock}
+\end{frame}
+
+\begin{frame}{LED-Konfiguration ergänzen}
+  Im Ordner \texttt{src} findest du die Datei
+  \texttt{ledconfig.yml}.
+
+  \vspace{1em}
+
+  \begin{enumerate}
+    \item Öffne \texttt{ledconfig.yml}.
+    \item Kopiere den gesamten Inhalt an das Ende deiner Datei
+      \texttt{esphome\_start.yml}.
+    \item Achte darauf, die Einrückungen unverändert zu übernehmen.
+  \end{enumerate}
+
+  \vspace{0.8em}
+
+  \begin{block}{Was bewirkt der neue Code?}
+    Die LED wird in Home Assistant als dimmbares Licht angezeigt. Du kannst
+    sie ein- und ausschalten sowie ihre Helligkeit verändern.
+  \end{block}
+\end{frame}
+
+\begin{frame}{{\small Nun fügen wir die LED zusätzlich zu unserer Schaltung hinzu}}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.53\textwidth}
+      \centering
+      \textbf{Aufbau auf dem Steckbrett}\\[0.3em]
+
+      \begin{tikzpicture}[x=0.48cm,y=0.47cm]
+        \draw[thick,rounded corners=2pt,fill=gray!10]
+          (1.35,0.45) rectangle (8.35,5.55);
+        \node[font=\scriptsize\bfseries] at (4.85,5.20) {Steckbrett};
+
+        % Drei intern verbundene Kontaktreihen
+        \foreach \y in {1.45,2.95,4.45}{
+          \draw[gray!35,line width=1.5pt] (2.05,\y) -- (7.65,\y);
+          \foreach \x in {2.05,2.75,3.45,4.15,4.85,5.55,6.25,6.95,7.65}{
+            \fill[gray!65] (\x,\y) circle (0.10);
+            \fill[white] (\x,\y) circle (0.045);
+          }
+        }
+
+        % Zuleitungen vom ESP32
+        \node[font=\scriptsize\bfseries,anchor=east] at (1.05,4.45) {GPIO18};
+        \draw[very thick,green!55!black] (1.10,4.45) -- (2.05,4.45);
+        \node[font=\scriptsize\bfseries,anchor=east] at (1.05,1.45) {GND};
+        \draw[very thick,black] (1.10,1.45) -- (2.05,1.45);
+
+        % Widerstand zwischen oberer und mittlerer Reihe
+        \draw[thick] (4.15,4.45) -- (4.15,4.05);
+        \draw[thick,fill=orange!25,rounded corners=1pt]
+          (3.78,3.20) rectangle (4.52,4.05);
+        \draw[thick] (4.15,3.20) -- (4.15,2.95);
+        \draw[line width=1.2pt,red!70!black] (3.90,3.20) -- (3.90,4.05);
+        \draw[line width=1.2pt,violet!80!black] (4.08,3.20) -- (4.08,4.05);
+        \node[font=\tiny,anchor=east,align=right] at (3.60,3.62)
+          {Widerstand};
+
+        % LED zwischen mittlerer und unterer Reihe
+        \draw[thick] (6.25,2.95) -- (6.25,2.70);
+        \draw[thick] (6.25,1.85) -- (6.25,1.45);
+        \draw[thick,fill=red!70] (6.25,2.28) circle (0.43);
+        \draw[white,line width=0.8pt] (6.02,2.10) arc[start angle=215,end angle=325,radius=0.28];
+        \node[font=\tiny,anchor=west] at (6.75,2.58) {langes Bein (+)};
+        \node[font=\tiny,anchor=west] at (6.75,1.98) {kurzes Bein (--)};
+
+        \node[font=\tiny,green!45!black,anchor=west] at (1.45,4.72)
+          {vom ESP32};
+        \node[font=\tiny,anchor=west] at (1.45,1.12) {zum ESP32};
+      \end{tikzpicture}
+    \end{column}
+
+    \begin{column}{0.45\textwidth}
+      \centering
+      {\small\textbf{Schaltplan für angehende Ingenieure}}\\[0.25em]
+
+      \begin{circuitikz}[american voltages,scale=0.82,transform shape]
+        \draw
+          (0,3.2) node[left,font=\scriptsize\bfseries]{GPIO18}
+          to[R,l=\scriptsize Widerstand] (3.0,3.2)
+          to[leD,l_=\scriptsize LED] (3.0,0.8)
+          node[ground]{};
+        \node[font=\scriptsize,anchor=west] at (3.35,0.8) {GND};
+      \end{circuitikz}
+
+      \vspace{0.1em}
+
+      {\scriptsize\textcolor{red}{\textbf{Polung beachten:}} Das lange Bein
+        zeigt zum Widerstand und zu GPIO18. Das kurze Bein wird mit GND
+        verbunden.}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \end{document}

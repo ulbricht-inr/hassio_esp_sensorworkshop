@@ -1,0 +1,11 @@
+# Kopiere diesen Abschnitt an das Ende von esphome_start.yml.
+output:
+  - platform: ledc
+    pin: GPIO18
+    id: workshop_led_output
+
+light:
+  - platform: monochromatic
+    name: "Workshop LED"
+    output: workshop_led_output
+    restore_mode: ALWAYS_OFF
