@@ -1,4 +1,5 @@
 \ProvidesPackage{mypresi}
+\RequirePackage{eso-pic}
 \def\fileversion{0.1}
 \def\filedate{\today{}}
 \definecolor{inrgreen}{rgb}{0.015,0.4549,0.2196}
@@ -36,7 +37,18 @@
   \end{beamercolorbox}}%
   \vskip0pt%
 }
-\setbeamertemplate{headline}{\includegraphics[height=1cm]{style/dummy.png}\hfill\hspace{1cm}\href{http://i-itwk-leipzig.de}{\includegraphics[height=0.5cm]{style/dummy.png}}\hspace{0.5cm}
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \rule{0pt}{1cm}%
+}
+\AddToShipoutPictureFG{%
+  \AtPageUpperLeft{%
+    \put(\LenToUnit{\dimexpr\paperwidth-0.5cm\relax},\LenToUnit{-0.35cm}){%
+      \makebox(0,0)[rt]{%
+        \href{https://www.htwk-leipzig.de/}{%
+          \includegraphics[height=0.5cm]{style/HTWK_Zusatz_de_H_Black_sRGB.png}}}%
+    }%
+  }%
 }
 \setbeamercolor{author in head/foot}{fg=white,bg=gray!70}
 \setbeamercolor{title in head/foot}{fg=white,bg=gray!70}

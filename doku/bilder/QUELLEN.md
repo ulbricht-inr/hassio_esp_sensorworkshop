@@ -10,3 +10,9 @@ Die Materialbilder stammen von Wikimedia Commons:
   <https://commons.wikimedia.org/wiki/File:Breadboard.png>
 - **Jumperkabel:** Andy Oakley, „Cjam-jumper-wires“, CC0 1.0  
   <https://commons.wikimedia.org/wiki/File:Cjam-jumper-wires.png>
+
+Das unveränderte horizontale HTWK-Logo stammt aus dem offiziellen
+PNG-Download der HTWK Leipzig:
+
+- **HTWK-Logo:** HTWK Leipzig, horizontale deutsche Version, schwarz
+  <https://www.htwk-leipzig.de/hochschule/hochschulkommunikation-marketing/corporate-design>
