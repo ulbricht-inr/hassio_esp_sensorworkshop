@@ -19,12 +19,12 @@ Workshop-Belegung:
 | ESP32 | DHT11-Modul |
 |---|---|
 | 3V3 | + / VCC |
-| GPIO4 | S / DATA |
+| GPIO32 | S / DATA |
 | GND | - / GND |
 
 Das verwendete DHT11-Modul besitzt den Pull-up-Widerstand bereits auf der
 Sensorplatine.
 
-Die dimmbare LED wird von `GPIO18` über einen 220-Ohm-Vorwiderstand angesteuert.
+Die dimmbare LED wird von `GPIO33` über einen 220-Ohm-Vorwiderstand angesteuert.
 Das lange Bein der LED (Anode) zeigt zum Widerstand, das kurze Bein (Kathode)
 wird mit GND verbunden.

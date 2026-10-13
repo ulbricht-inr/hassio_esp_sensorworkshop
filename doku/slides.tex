@@ -252,11 +252,36 @@
       \centering
       \textbf{Praktischer Aufbau}\\[0.3em]
 
-      \includegraphics[width=\textwidth,height=5.0cm,keepaspectratio]
-        {fritzing/esp32-dht11-breadboard.pdf}\\[-0.1em]
+      \begin{tikzpicture}[x=1cm,y=1cm]
+        \node[inner sep=0] at (3.65,2.25)
+          {\includegraphics[width=7.25cm]{fritzing/breadboard2.pdf}};
+        \node[inner sep=0,rotate=90] at (2.65,2.25)
+          {\includegraphics[height=2.75cm]{fritzing/esp32-breadboard.pdf}};
+        \node[inner sep=0] at (6.20,2.20)
+          {\includegraphics[height=1.40cm]{fritzing/dht11-module-breadboard.pdf}};
+
+        % Nur die erreichbare Pinleiste des breiten ESP32 wird verwendet.
+        \draw[very thick,red!75!black,rounded corners=2pt]
+          (1.35,1.68) -- (1.35,1.14);
+        \draw[very thick,black,rounded corners=2pt]
+          (3.17,1.68) -- (3.17,1.40);
+        \draw[very thick,blue!70!black,rounded corners=2pt]
+          (2.19,1.68) -- (2.19,1.48) -- (6.00,1.48) -- (6.00,1.50);
+        \draw[very thick,red!75!black,rounded corners=2pt]
+          (6.20,1.50) -- (6.65,1.50) -- (6.65,1.14);
+        \draw[very thick,black,rounded corners=2pt]
+          (6.40,1.50) -- (6.90,1.50) -- (6.90,1.40);
+
+        \node[font=\tiny\bfseries,blue!70!black,anchor=south]
+          at (2.70,1.49) {GPIO32};
+        \node[font=\tiny\bfseries,red!75!black,anchor=south]
+          at (1.58,1.20) {3V3};
+        \node[font=\tiny\bfseries,anchor=south]
+          at (3.35,1.20) {GND};
+      \end{tikzpicture}\\[-0.1em]
       {\scriptsize
         \textcolor{red!80!black}{Rot: 3V3}\quad
-        \textcolor{blue!70!black}{Blau: GPIO4}\quad
+        \textcolor{blue!70!black}{Blau: GPIO32}\quad
         Schwarz: GND}
     \end{column}
 
@@ -268,7 +293,7 @@
         \draw[thick,fill=blue!5] (0,0.05) rectangle (2.8,4.55);
         \node[font=\scriptsize\bfseries] at (1.4,4.15) {ESP32};
         \node[font=\tiny,anchor=east] at (2.68,3.15) {3V3};
-        \node[font=\tiny,anchor=east] at (2.68,2.20) {GPIO4};
+        \node[font=\tiny,anchor=east] at (2.68,2.20) {GPIO32};
         \node[font=\tiny,anchor=east] at (2.68,1.25) {GND};
 
         \draw[thick,fill=blue!5] (5.25,0.55) rectangle (7.95,4.05);
@@ -324,7 +349,7 @@
   \begin{itemize}
     \item Ändere in der YML-Datei den Namen des Projekts in einen eigenen Namen.
     \item Wo findest du den ESP32 und den DHT11 im Code wieder?
-    \item Welche Codezeile gehört zur Datenleitung an \texttt{GPIO4}?
+    \item Welche Codezeile gehört zur Datenleitung an \texttt{GPIO32}?
     \item Welche beiden Messwerte liefert der Sensor?
     \item Welche Leitungen aus dem Schaltplan tauchen nicht im Code auf?
   \end{itemize}
@@ -450,15 +475,18 @@
 
         % Sauber geführte Leitungen ohne Kreuzungen
         \draw[very thick,green!55!black,rounded corners=2pt]
-          (3.45,1.68) -- (4.15,1.68) -- (4.15,2.75) -- (4.58,2.75);
+          (2.33,1.68) -- (2.33,1.48) -- (4.15,1.48)
+          -- (4.15,2.75) -- (4.58,2.75);
         \draw[very thick,red!75!black,rounded corners=2pt]
           (6.02,2.75) -- (5.82,2.75) -- (5.82,1.67) -- (6.08,1.67);
         \draw[very thick,black,rounded corners=2pt]
-          (6.25,1.67) -- (6.25,0.72) -- (3.62,0.72) -- (3.62,1.68);
+          (6.25,1.67) -- (6.70,1.67) -- (6.70,1.40);
+        \draw[very thick,black,rounded corners=2pt]
+          (3.17,1.68) -- (3.17,1.40);
 
         \node[font=\tiny\bfseries,green!45!black,anchor=south]
-          at (3.82,1.72) {GPIO18};
-        \node[font=\tiny\bfseries,anchor=north] at (3.93,0.70) {GND};
+          at (2.78,1.49) {GPIO33};
+        \node[font=\tiny\bfseries,anchor=south] at (3.38,1.20) {GND};
       \end{tikzpicture}
     \end{column}
 
@@ -468,7 +496,7 @@
 
       \begin{circuitikz}[american voltages,scale=0.82,transform shape]
         \draw
-          (0,3.2) node[left,font=\scriptsize\bfseries]{GPIO18}
+          (0,3.2) node[left,font=\scriptsize\bfseries]{GPIO33}
           to[R,l=\scriptsize Widerstand] (3.0,3.2)
           to[leD,l_=\scriptsize LED] (3.0,0.8)
           node[ground]{};
@@ -478,7 +506,7 @@
       \vspace{0.1em}
 
       {\scriptsize\textcolor{red}{\textbf{Polung beachten:}} Das lange Bein
-        zeigt zum Widerstand und zu GPIO18. Das kurze Bein wird mit GND
+        zeigt zum Widerstand und zu GPIO33. Das kurze Bein wird mit GND
         verbunden.}
     \end{column}
   \end{columns}

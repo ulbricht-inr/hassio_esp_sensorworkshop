@@ -1,7 +1,7 @@
 # Kopiere diesen Abschnitt an das Ende von esphome_start.yml.
 output:
   - platform: ledc
-    pin: GPIO18
+    pin: GPIO33
     id: workshop_led_output
 
 light:

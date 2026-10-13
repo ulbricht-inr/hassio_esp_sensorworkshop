@@ -18,7 +18,7 @@ wifi:
 
 sensor:
   - platform: dht
-    pin: GPIO4
+    pin: GPIO32
     model: DHT11
     temperature:
       name: "Workshop Temperatur"
